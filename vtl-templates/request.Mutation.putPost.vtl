@@ -1,0 +1,19 @@
+#set($aInput = $ctx.args)
+#set($id = $aInput.title)
+#set($encodedId = $util.base64Encode($id))
+
+#set($input = {
+    "id": $encodedId,
+    "type": "post",
+    "userId": $aInput.title,
+    "updatedAt": $util.time.nowEpochMilliSeconds()
+})
+
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "key" : {
+        "id" : $util.dynamodb.toDynamoDBJson($encodedId)
+    },
+    "attributeValues" : $util.dynamodb.toMapValuesJson($input)
+}

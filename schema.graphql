@@ -1,0 +1,19 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Mutation {
+  putPost(id: ID!, title: String!): Post
+}
+
+type Query {
+  post(id: ID!): Post
+}
+
+type Post {
+  id: ID!
+  type: String!
+  title: String!
+  updatedAt: String!
+}

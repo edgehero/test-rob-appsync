@@ -3,7 +3,7 @@ module "appsync" {
 
   name = "rob-test-${var.site}-${var.environment}"
 
-  schema = file("/schema.graphql")
+  schema = file("${path.module}/schema.graphql")
 
   api_keys = {
     future  = "2021-10-20T13:00:00Z"
@@ -23,14 +23,14 @@ module "appsync" {
   resolvers = {
     "Mutation.putPost" = {
       data_source   = "dynamodb_table1"
-      request_template  = file("/vtl-templates/request.Mutation.putPost.vtl")
-      response_template = file("/vtl-templates/response.Mutation.putPost.vtl")
+      request_template  = file("${path.module}/vtl-templates/request.Mutation.putPost.vtl")
+      response_template = file("${path.module}/vtl-templates/response.Mutation.putPost.vtl")
     }
 
     "query.post" = {
       data_source   = "dynamodb_table1"
-      request_template  = file("/vtl-templates/request.Query.post.vtl")
-      response_template = file("/vtl-templates/response.Query.post.vtl")
+      request_template  = file("${path.module}/vtl-templates/request.Query.post.vtl")
+      response_template = file("${path.module}/vtl-templates/response.Query.post.vtl")
     }
   }
 

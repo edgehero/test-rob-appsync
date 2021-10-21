@@ -6,7 +6,6 @@ module "appsync" {
   schema = file("${path.module}/schema.graphql")
 
   api_keys = {
-    future  = "2021-10-20T13:00:00Z"
     default = null
   }
 

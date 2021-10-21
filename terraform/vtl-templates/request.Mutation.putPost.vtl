@@ -1,11 +1,10 @@
-#set($aInput = $ctx.args)
-#set($id = $aInput.title)
-#set($encodedId = $util.base64Encode($id))
+#set($title = $ctx.args.title)
+#set($encodedId = $util.base64Encode($title))
 
 #set($input = {
     "id": $encodedId,
     "type": "post",
-    "userId": $aInput.title,
+    "userId": $title,
     "updatedAt": $util.time.nowEpochMilliSeconds()
 })
 

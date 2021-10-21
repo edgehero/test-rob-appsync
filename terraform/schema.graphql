@@ -7,10 +7,10 @@ type Query {
 }
 
 type Post {
-  id: ID!
-  type: String!
-  title: String!
-  updatedAt: String!
+  id: ID
+  type: String
+  title: String
+  updatedAt: String
 }
 
 schema {

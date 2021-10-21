@@ -1,7 +1,7 @@
 #if($ctx.error)
     $util.error($ctx.error.message, $ctx.error.type, $ctx.result, {"errorCode": 400 })
 #elseif($util.isNull($ctx.result))
-    $util.error("Data not saved with id: $ctx.args.input.contentId", "BAD_REQUEST", {}, {"errorCode": 400 })
+    $util.error("Data not saved with title: $ctx.args.title", "BAD_REQUEST", {}, {"errorCode": 400 })
 #else
     $util.toJson($ctx.result)
 #end

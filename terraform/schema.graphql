@@ -1,5 +1,5 @@
 type Mutation {
-  putPost(id: ID!, title: String!): Post
+  putPost(title: String!): Post
 }
 
 type Query {

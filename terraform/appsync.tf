@@ -1,7 +1,7 @@
 module "appsync" {
   source = "terraform-aws-modules/appsync/aws"
 
-  name = "rob-test"
+  name = "rob-test-${var.site}-${var.environment}"
 
   schema = file("../schema.graphql")
 
@@ -15,7 +15,7 @@ module "appsync" {
   datasources = {
     dynamodb_table1 = {
       type = "AMAZON_DYNAMODB"
-      table_name = "rob-test-posts"
+      table_name = "rob-test-posts-${var.site}-${var.environment}"
       region     = "eu-west-1"
     }
   }

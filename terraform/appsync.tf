@@ -26,7 +26,7 @@ module "appsync" {
       response_template = file("${path.module}/vtl-templates/response.Mutation.putPost.vtl")
     }
 
-    "query.post" = {
+    "Query.post" = {
       data_source   = "dynamodb_table1"
       request_template  = file("${path.module}/vtl-templates/request.Query.post.vtl")
       response_template = file("${path.module}/vtl-templates/response.Query.post.vtl")
